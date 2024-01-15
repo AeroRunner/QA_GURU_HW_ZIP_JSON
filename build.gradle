@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id "org.gradle.test-retry" version "1.5.8"
+}
+
+group = 'ru.lanit.de'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:7.0.2",
+            "org.junit.jupiter:junit-jupiter:5.10.1",
+            'org.slf4j:slf4j-simple:2.0.9',
+            'com.codeborne:pdf-test:1.7.0',
+            'commons-io:commons-io:2.15.0',
+            'com.codeborne:xls-test:1.4.3',
+            'org.assertj:assertj-core:3.23.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.16.0',
+            'com.opencsv:opencsv:5.9',
+            'com.fasterxml.jackson.core:jackson-core:2.13.1',
+    )
+}
+test {
+    useJUnitPlatform()
+    retry{
+        failOnPassedAfterRetry = true
+        maxFailures = 20
+        maxRetries = 20
+    }
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "full"
+    }
+}
+
+
