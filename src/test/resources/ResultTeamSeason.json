@@ -1,8 +1,14 @@
 {
   "team": "BeatBoom",
-  "draft": ["NightFall","TORONTOTOKIO","GPK","PURE","SAVE"],
+  "draft": [
+    "NightFall",
+    "TORONTOTOKIO",
+    "GPK",
+    "PURE",
+    "SAVE"
+  ],
   "season": "PGL",
-  "winRate":"75%",
+  "winRate": "75%",
   "prizeQuantity": [
     "1st PGL",
     "3st LIMA Major",
